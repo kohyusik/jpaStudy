@@ -45,14 +45,14 @@ public class japMain {
     private static void logic(EntityManager em) {
 
         Member[] memberArr = new Member[100];
-
+        
         for (int i = 0; i < 100; i++) {
 
             String id = "id-" + i;
             Member member = new Member();
             member.setId(id);
             member.setName("koh");
-            member.setAge(26);
+            member.setAge(AgeCalculator.calculate(26, -1, (a, b) -> a + b));
             em.persist(member);
 
             memberArr[i] = member;
@@ -74,7 +74,7 @@ public class japMain {
         System.out.println("members.size=" + members);
 
         // JPQL
-        em.createQuery("DELETE FROM Member e").executeUpdate();
+//        em.createQuery("DELETE FROM Member e").executeUpdate();
         // SQL
 //        em.createNativeQuery("TRUNCATE TABLE MEMBER").executeUpdate();
 
