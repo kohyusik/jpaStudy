@@ -1,13 +1,12 @@
 package com.jason.ch04;
 
-import com.jason.ch02.AgeCalculator;
-import com.jason.ch02.Member;
+import com.jason.ch04.model.entity.Item;
+import com.jason.ch04.model.entity.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 /**
  * @author : Yusik
@@ -47,11 +46,12 @@ public class japMain {
 
     private static void generateKey(EntityManager em) {
 
-        com.jason.ch04.Member[] memberArr = new com.jason.ch04.Member[100];
+        int memberSize = 5;
+        Member[] memberArr = new Member[memberSize];
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < memberSize; i++) {
 
-            com.jason.ch04.Member member = new com.jason.ch04.Member();
+            Member member = new Member();
             member.setName("koh");
             member.setAge(29 + i);
 
@@ -67,6 +67,23 @@ public class japMain {
 //        em.createQuery("DELETE FROM Member e").executeUpdate();
         // SQL
 //        em.createNativeQuery("TRUNCATE TABLE MEMBER").executeUpdate();
+    
+        int itemSize = 5;
+        Item[] itemArr = new Item[itemSize];
+    
+        for (int i = 0; i < memberSize; i++) {
+        
+            Item item = new Item();
+            item.setName("item");
+            item.setPrice(30 * i);
+        
+            System.out.println(">>>>>> item.id : " + item.getId());
+            em.persist(item);
+            System.out.println(">>>>>> item.id : " + item.getId());
+    
+            itemArr[i] = item;
+        
+        }
 
 
     }
