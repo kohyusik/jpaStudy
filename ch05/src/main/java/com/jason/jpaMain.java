@@ -69,6 +69,20 @@ public class jpaMain {
         System.out.println("list length : " + members.size());
         System.out.println(members);
 
+        // Update
+        Team team2 = new Team();
+        team2.setName("Japan");
+        em.persist(team2);
+
+        member.setTeam(team2);
+        System.out.println(member);
+
+        // Delete
+        member.setTeam(null);
+        em.remove(team2);
+
+
 
     }
+
 }
