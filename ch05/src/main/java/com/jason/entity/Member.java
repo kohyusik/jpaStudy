@@ -32,7 +32,7 @@ public class Member {
     private String name;
 
     @ManyToOne
-//    @JoinColumn(name = "id")
+    @JoinColumn(name = "team_id", referencedColumnName = "id")
     private Team team;
 
     private Integer age;

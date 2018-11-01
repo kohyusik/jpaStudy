@@ -38,6 +38,7 @@ public class jpaMain {
 
     private static void execute(EntityManager em) {
 
+        // Insert
         Team team = new Team();
         team.setName("Korea");
         em.persist(team);
@@ -51,5 +52,11 @@ public class jpaMain {
         member2.setName("yusik");
         member2.setTeam(team);
         em.persist(member2);
+
+        // Select
+        Member member = em.find(Member.class, 1l);
+        System.out.println(member);
+
+
     }
 }

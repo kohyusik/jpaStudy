@@ -1,6 +1,7 @@
 package com.jason.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -11,6 +12,9 @@ public class Team {
     private Long id;
 
     private String name;
+
+    @OneToMany
+    private List<Member> members;
 
     public Long getId() {
         return id;
@@ -28,11 +32,20 @@ public class Team {
         this.name = name;
     }
 
+    public List<Member> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<Member> members) {
+        this.members = members;
+    }
+
     @Override
     public String toString() {
         return "Team{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", members=" + members +
                 '}';
     }
 }
