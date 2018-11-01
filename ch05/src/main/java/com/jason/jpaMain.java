@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class jpaMain {
 
@@ -56,6 +57,17 @@ public class jpaMain {
         // Select
         Member member = em.find(Member.class, 1l);
         System.out.println(member);
+
+        // JPQL
+        String jpql = "select m from Member m join m.team t " +
+                "where t.name = :teamName";
+
+        List<Member> members = em.createQuery(jpql, Member.class)
+                .setParameter("teamName", "Korea")
+                .getResultList();
+
+        System.out.println("list length : " + members.size());
+        System.out.println(members);
 
 
     }
