@@ -1,4 +1,4 @@
-package com.jason.ch02;
+package com.jason;
 
 /**
  * @author : Yusik

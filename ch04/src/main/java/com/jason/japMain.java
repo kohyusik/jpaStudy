@@ -1,10 +1,12 @@
-package com.jason.ch02;
+package com.jason;
+
+import com.jason.entity.Item;
+import com.jason.entity.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 /**
  * @author : Yusik
@@ -16,14 +18,14 @@ public class japMain {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-ch04");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
 
         try {
 
             tx.begin();
-            logic(em);  //비즈니스 로직
+            generateKey(em);
             tx.commit();
 
 
@@ -42,41 +44,46 @@ public class japMain {
 
     }
 
-    private static void logic(EntityManager em) {
+    private static void generateKey(EntityManager em) {
 
-        Member[] memberArr = new Member[100];
+        int memberSize = 5;
+        Member[] memberArr = new Member[memberSize];
         
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < memberSize; i++) {
 
-            String id = "id-" + i;
             Member member = new Member();
-            member.setId(id);
             member.setName("koh");
-            member.setAge(AgeCalculator.calculate(26, -1, (a, b) -> a + b));
+            member.setAge(29 + i);
+
+            System.out.println("member.id : " + member.getId());
             em.persist(member);
+            System.out.println("member.id : " + member.getId());
 
             memberArr[i] = member;
 
         }
 
-        Member findMemberBefore = em.find(Member.class, "id0");
-        System.out.println("findMember= " + findMemberBefore);
-
-        //수정
-        memberArr[0].setAge(20);
-
-        //한 건 조회
-        Member findMember = em.find(Member.class, "id0");
-        System.out.println("findMember= " + findMember);
-
-        //목록 조회
-        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList().subList(0, 2);
-        System.out.println("members.size=" + members);
-
         // JPQL
 //        em.createQuery("DELETE FROM Member e").executeUpdate();
         // SQL
 //        em.createNativeQuery("TRUNCATE TABLE MEMBER").executeUpdate();
+    
+        int itemSize = 5;
+        Item[] itemArr = new Item[itemSize];
+    
+        for (int i = 0; i < memberSize; i++) {
+        
+            Item item = new Item();
+            item.setName("item");
+            item.setPrice(30 * i);
+        
+            System.out.println(">>>>>> item.id : " + item.getId());
+            em.persist(item);
+            System.out.println(">>>>>> item.id : " + item.getId());
+    
+            itemArr[i] = item;
+        
+        }
 
 
     }

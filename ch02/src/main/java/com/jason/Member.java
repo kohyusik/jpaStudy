@@ -1,4 +1,4 @@
-package com.jason.ch02;
+package com.jason;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

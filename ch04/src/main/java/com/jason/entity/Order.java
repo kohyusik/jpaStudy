@@ -1,4 +1,4 @@
-package com.jason.ch04.model.entity;
+package com.jason.entity;
 
 import javax.persistence.*;
 import java.util.Date;

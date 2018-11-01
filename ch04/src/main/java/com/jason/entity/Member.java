@@ -1,4 +1,4 @@
-package com.jason.ch04.model.entity;
+package com.jason.entity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,7 +14,7 @@ import java.util.Date;
 @SequenceGenerator(
         name = "SEQ_MEMBER",
         allocationSize = 1)
-@Table(name = "MEMBER4", uniqueConstraints = {@UniqueConstraint(
+@Table(name = "MEMBER", uniqueConstraints = {@UniqueConstraint(
         name = "NAME_AGEE_UNIQUE",
         columnNames = {"NAME", "AGE"})})
 public class Member {

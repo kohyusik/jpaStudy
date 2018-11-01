@@ -1,4 +1,4 @@
-package com.jason.ch04.model.entity;
+package com.jason.entity;
 
 public enum OrderStatus {
     ORDER, CANCEL
