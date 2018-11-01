@@ -1,6 +1,7 @@
 package com.jason.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,7 +15,7 @@ public class Team {
     private String name;
 
     @OneToMany(mappedBy = "team")
-    private List<Member> members;
+    private List<Member> members = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -45,7 +46,8 @@ public class Team {
         return "Team{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", members=" + members +
+//                ", members=" + members +
+                ", members.size()=" + members.size() +
                 '}';
     }
 }

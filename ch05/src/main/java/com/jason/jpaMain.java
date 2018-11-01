@@ -47,11 +47,13 @@ public class jpaMain {
         Member member1 = new Member();
         member1.setName("koh");
         member1.setTeam(team);
+        team.getMembers().add(member1);
         em.persist(member1);
 
         Member member2 = new Member();
         member2.setName("yusik");
         member2.setTeam(team);
+        team.getMembers().add(member2);
         em.persist(member2);
 
         // Select
