@@ -13,7 +13,7 @@ public class Team {
 
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "team")
     private List<Member> members;
 
     public Long getId() {
