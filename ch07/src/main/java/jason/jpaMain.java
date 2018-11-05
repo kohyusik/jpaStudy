@@ -41,6 +41,7 @@ public class jpaMain {
     private static void unidirectional(EntityManager em) {
         
         // Release v 1.0.0
+        // hot fix : bug 1
         Member member1 = new Member("koh");
         Member member2 = new Member("jason");
     
