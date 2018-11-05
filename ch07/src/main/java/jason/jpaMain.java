@@ -41,7 +41,7 @@ public class jpaMain {
     private static void unidirectional(EntityManager em) {
         
         // Release v 1.0.0
-        Member member1 = new Member("yusik");
+        Member member1 = new Member("koh");
         Member member2 = new Member("jason");
     
         Team team = new Team("Korea");
