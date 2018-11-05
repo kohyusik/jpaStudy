@@ -40,8 +40,7 @@ public class jpaMain {
     
     private static void unidirectional(EntityManager em) {
         
-        // one to many 단방향
-        // fk 가 member table에 있으므로 insert 후 추가적인 update를 한다
+        // Release v 1.0.0
         Member member1 = new Member("yusik");
         Member member2 = new Member("jason");
     
