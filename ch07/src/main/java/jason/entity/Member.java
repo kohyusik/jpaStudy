@@ -28,7 +28,7 @@ public class Member {
     @Column(name = "name", nullable = false)
     private String name;
     
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "LOCKER_ID")
     private Locker locker;
     
