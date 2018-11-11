@@ -1,5 +1,6 @@
 package jason;
 
+import jason.entity.Member;
 import jason.entity.Team;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import javax.persistence.Persistence;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 public class jpaMain {
 
@@ -95,7 +97,11 @@ public class jpaMain {
         System.out.println(">>>>>> team.getMember : ");
         System.out.println(foundTeam.getMembers().getClass());
 
-        em.getCriteriaBuilder();
+
+        System.out.println(">>>>>> member jpql : ");
+        String jpql = "select a from Member as a where a.name = 'koh'";
+        List<Member> memberList = em.createQuery(jpql, Member.class).getResultList();
+        System.out.println(memberList.get(0).getName());
 
 //        System.out.println(">>>>>> member.getLock : ");
 //        System.out.println(foundTeam.getMembers().get(1).getLocker().getName());
