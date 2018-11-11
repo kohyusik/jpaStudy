@@ -50,6 +50,7 @@
         <module>ch07-1-3</module>
         <module>ch07-2</module>
         <module>ch07-3-2</module>
+        <module>ch08</module>
     </modules>
 
     <build>
