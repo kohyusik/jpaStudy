@@ -1,8 +1,8 @@
 package jason;
 
-import jason.entity.table.Album;
-import jason.entity.table.Book;
-import jason.entity.table.Movie;
+import jason.entity.Album;
+import jason.entity.Book;
+import jason.entity.Movie;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

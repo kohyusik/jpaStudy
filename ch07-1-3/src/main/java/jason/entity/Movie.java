@@ -1,4 +1,4 @@
-package jason.entity.table;
+package jason.entity;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
