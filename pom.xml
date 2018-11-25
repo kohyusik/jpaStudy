@@ -51,6 +51,7 @@
         <module>ch07-2</module>
         <module>ch07-3-2</module>
         <module>ch08</module>
+        <module>ch09</module>
     </modules>
 
     <build>
