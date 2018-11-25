@@ -1,5 +1,6 @@
 package jason;
 
+import jason.entity.Address;
 import jason.entity.Member;
 
 import javax.persistence.EntityManager;
@@ -38,6 +39,13 @@ public class jpaMain {
 
         Member member1 = new Member("koh");
         Member member2 = new Member("jason");
+
+        Address address = new Address();
+        address.setCity("Seoul");
+        address.setStreet("Wangsimni");
+
+        member1.setHomeAddress(address);
+        member2.setHomeAddress(address);
 
         em.persist(member1);
         em.persist(member2);

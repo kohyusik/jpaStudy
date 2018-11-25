@@ -1,5 +1,7 @@
 package jason.entity;
 
+import lombok.Data;
+
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 
@@ -8,6 +10,7 @@ import javax.persistence.Embedded;
  * @date : 25/11/2018
  */
 
+@Data
 @Embeddable
 public class Address {
 
